@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#logo {
+    width: 1.2em;
+    margin-top: -0.2em;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #444;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+.timeline-label {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+#timeline2 .axis {
+    transform: translate(0px, 40px);
+    -ms-transform: translate(0px, 40px); /* IE 9 */
+    -webkit-transform: translate(0px, 40px); /* Safari and Chrome */
+    -o-transform: translate(0px, 40px); /* Opera */
+    -moz-transform: translate(0px, 40px); /* Firefox */
+}
+
+.coloredDiv {
+    height: 20px;
+    width: 20px;
+    float: left;
+}
+
+.row-green-bar:hover, .row-green-bar:active {
+    fill: #87c9e1;
+}
+
+.small-number-input {
+    width: 6em;
+    height: 1.7em;
+    display: inline;
+    margin: 0 4px;
+}
+
+.label-background {
+    fill: #999;
+}
+
+#tooltip {
+    position:fixed;
+    top:0;
+    left:0;
+    width:auto;
+    height:auto;
+    font:bold 12px/20px Arial, Tahoma, Verdana;
+    background:#FCFFA9;
+    border-radius:3px;
+    padding:0 2px;
+    display: none;
+}

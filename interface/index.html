@@ -1,0 +1,226 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="/interface/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/interface/logo.png"/>
+
+    <link rel="stylesheet" href="/interface/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="/interface/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/interface/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/interface/css/main.css">
+
+    <script src="/interface/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="/interface/js/vendor/d3-timeline.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div style="width:90%;margin-left:auto;margin-right:auto;">
+    <h1><img id="logo" src="/interface/logo.png" alt="logo.png" class="img"> facebook online presence</h1>
+    <h3>web interface <a style="margin-top:-6px" class="pull-right btn" onclick="$('#form-block').toggle()"><img
+            style="width:2em;height:2em;" src="/interface/settings.png"/><b>view settings</b></a></h3>
+    <div id="form-block" style="display: none;background-color:#eee;padding: 0.3em;border-top: 0.2em solid #999;">
+        <form>
+            <table class="table" style="margin-bottom: 0;">
+                <tbody>
+                <tr>
+                    <th scope="row">presence type</th>
+                    <td>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="online" checked>
+                            online
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="active" checked>
+                            active
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="mobile" checked>
+                            mobile
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">username</th>
+                    <td>
+                        <label for="exampleInputName2">regex match</label>
+                        <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">epoch interval</th>
+                    <td>
+                        <label for="example-number-input" class="form-check-inline">epoch start</label>
+                        <input class="form-control" type="number" value="" id="example-number-input">
+                        <label for="example-number-input" class="form-check-inline">epoch end</label>
+                        <input class="form-control" type="number" value="" id="example-number-input2">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">timeline tick format</th>
+                    <td>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-year" value="%Y "> year
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-month" value="%b. ">
+                            month
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-day" value="%d. "> day
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-weekday" value="%a. " checked>
+                            weekday
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-hour" value="%H" checked> hour
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkbox-minute" value=":%M" checked>
+                            minute
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">timeline tick frequency</th>
+                    <td>
+                        <table class="">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-year" value="years"> year
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value=""
+                                           id="year-input">
+                                </td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-month" value="months"> month
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value=""
+                                           id="month-input">
+                                </td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-week" value="weeks"> week
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value=""
+                                           id="week-input">
+                                </td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-day" value="days" checked> day
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value="1"
+                                           id="day-input">
+                                </td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-hour" value="hours"> hour
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value=""
+                                           id="hour-input">
+                                </td>
+                                <td>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                               id="exampleRadios1-minute" value="minutes"> minute
+                                    </label>
+                                </td>
+                                <td>
+                                    <input class="form-control small-number-input" type="number" value=""
+                                           id="minute-input">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-primary btn-large"
+                                onclick="(function(){filterDataAction();})();">submit
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-large"
+                                onclick="(function(){resetFilterAction();})();">reset
+                        </button>
+                        <button type="button" class="btn btn-warning btn-large" id="updateButton"
+                                onclick="(function(){updateDataAndShow();})();">update
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div>
+        <div id="timelineComplex"></div>
+    </div>
+</div>
+<div id="tooltip">Date: 213-123</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/interface/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+<script src="/interface/js/vendor/bootstrap.min.js"></script>
+
+<script src="/interface/js/plugins.js"></script>
+<script src="/interface/js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--<script>
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+                function () {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>-->
+</body>
+</html>
